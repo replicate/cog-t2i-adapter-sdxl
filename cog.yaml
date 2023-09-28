@@ -2,16 +2,19 @@ build:
   gpu: true
   system_packages:
     - "python3-opencv"
-  cuda: "11.6"
+  cuda: "11.7"
   python_version: "3.9"
   python_packages:
     - "torch==2.0.0"
     - "torchvision"
-    - "diffusers=>0.21.0"
+    - "git+https://github.com/huggingface/diffusers.git"
     - "controlnet_aux==0.0.7"
     - "mediapipe"
     - "transformers"
     - "accelerate"
     - "safetensors"
+    - "xformers"
+  run:
+    - curl -o /usr/local/bin/pget -L "https://github.com/replicate/pget/releases/download/v0.0.1/pget" && chmod +x /usr/local/bin/pget
 
 predict: "predict.py:Predictor"
