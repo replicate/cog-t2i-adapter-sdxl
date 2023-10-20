@@ -147,6 +147,10 @@ class Predictor(BasePredictor):
         )
 
         outputs_paths = []
+        preprocessed_output_path = f"/tmp/out-preprocessed.png"
+        image.save(preprocessed_output_path)
+        outputs_paths.append(Path(preprocessed_output_path))
+        
         for i, output_image in enumerate(output.images):
             output_path = f"/tmp/out-{i}.png"
             output_image.save(output_path)
